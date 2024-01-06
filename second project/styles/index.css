@@ -1,0 +1,84 @@
+body {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-color: rgb(218, 247, 234);
+}
+
+header {
+  padding: 32px; /* header에 padding을 주는이유 (강의 83) */
+  /* h1 요소에 기본적인 margin이 있는데 header에 margin을 설정하면 
+    마진 중첩 때문에 원하는 만큼 떨어뜨리기가 안됨 */
+}
+
+h1 {
+  font-size: 50px;
+  color: rgb(0, 114, 61);
+}
+
+header img {
+  /* header안에 있는 img에만 적용하기 위해 결합선택자 사용 */
+  width: 300px; /* 종횡비가 유지되므로 height를 굳이 설정해줄 필요는 없음 */
+}
+
+main {
+  text-align: left;
+  background-color: rgb(0, 141, 75);
+  color: snow;
+  width: 710px;
+  border-radius: 8px;
+
+  margin: 30px auto;
+  padding: 30px;
+}
+
+ul {
+  padding: 0;
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin: 18px 0;
+  padding-left: 10px;
+  /* border-left 속성으로 왼쪽에 강조 구분선을 넣기위해 패딩으로 처리 */
+  border-left: 5px solid transparent;
+}
+
+.list-highlight {
+  color: rgb(248, 232, 179);
+  border-color: rgb(247, 209, 85);
+}
+
+a {
+  background-color: rgb(248, 232, 179);
+  color: rgb(0, 94, 50);
+  padding: 2px 6px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  background-color: rgb(247, 209, 85);
+}
+
+#go-to-PDF {
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(175, 219, 127);
+  padding: 13px 23px;
+  border-radius: 8px;
+
+  color: black;
+  margin-bottom: 10px;
+}
+
+#go-to-PDF:hover,
+#go-to-PDF:active {
+  background-color: rgb(192, 229, 151);
+}
+
+footer p {
+  margin-top: 30px;
+  color: rgb(25, 119, 75);
+}

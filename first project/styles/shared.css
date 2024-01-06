@@ -1,0 +1,32 @@
+/* 모든 링크의 공통 스타일 */
+
+body {
+  margin: 50px;
+  text-align: center;
+  /* body안의 모든 요소 중앙정렬 
+    -> 이때 body안의 블록요소는 width 지정 시 중앙정렬 해제됨
+     그 블록 요소에 margin : auto;로 해결 */
+  background-color: rgb(233, 215, 207);
+  color: #544a4a;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  /* text-align: center; */
+}
+
+p {
+  font-family: "Fira Sans", sans-serif;
+  /* text-align: center; */
+  font-size: 20px;
+}
+
+a {
+  font-family: "Fira Sans", sans-serif;
+  color: teal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
