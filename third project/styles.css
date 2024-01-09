@@ -49,3 +49,54 @@
 #hero-content a:hover {
   background-color: rgb(255, 238, 0);
 }
+
+#highlights {
+  padding: 24px;
+  /* background-color: rgb(227, 255, 253); */
+
+  /* 그라데이션 으로 - CSS function을 사용 */
+  background: linear-gradient(45deg, rgb(227, 255, 253), rgb(202, 243, 240));
+}
+
+#highlights h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 40px;
+  color: rgb(59, 65, 64);
+  margin: 24px 0;
+}
+
+#destinations {
+  display: flex;
+  justify-content: center;
+
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.destination {
+  flex: 1;
+
+  margin: 0 20px;
+  text-transform: uppercase;
+}
+
+.destination img {
+  height: 270px;
+  width: 100%;
+  box-shadow: 2px 4px 8px rgb(68, 67, 67);
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.destination p {
+  text-align: center;
+  font-size: 24px;
+  color: rgb(124, 123, 123);
+  margin: 20px 0;
+}
+
+.destination strong {
+  color: rgb(0, 160, 117);
+}
