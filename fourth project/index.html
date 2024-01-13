@@ -3,13 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Online Food Cart</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Online Food Order</title>
   </head>
 
   <body>
-    <header>
-      <a href="index.html">WEBFOOD</a>
-      <nav>
+    <header id="main-header">
+      <a href="index.html" id="logo">webfood</a>
+      <nav id="nav-bar">
         <ul>
           <li><a href="">Browse Meals</a></li>
           <li><a href="">My Orders</a></li>
@@ -19,21 +24,21 @@
 
     <main>
       <h1>Browse Our Delicious Meals</h1>
-      <section>
+      <section id="latest-products">
         <ul>
-          <li>
+          <li class="food-item">
             <img src="images/steak.jpeg" alt="Beef steak with wine" />
-            <div>
+            <div class="food-item-content">
               <h2>Beef steak with wine</h2>
-              <a href="">Add to Cart</a>
+              <a href="" class="btn">Add to Cart</a>
             </div>
           </li>
 
-          <li>
+          <li class="food-item">
             <img src="images/sushi.jpg" alt="Sushi Omakese" />
-            <div>
-              <h2>Sushi Omakese</h2>
-              <a href="">Add to Cart</a>
+            <div class="food-item-content">
+              <h2>Sushi Omakase</h2>
+              <a href="" class="btn">Add to Cart</a>
             </div>
           </li>
         </ul>
