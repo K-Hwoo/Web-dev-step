@@ -14,7 +14,7 @@ let price = 29000;
 let goals = [
   "Learning web backend",
   "Studying Deep learning",
-  "Doing many English speaking",
+  "Doing English speaking a lot",
 ];
 
 // 2) Output ("alert") the three variable values
