@@ -75,7 +75,7 @@
             </article>
           </li>
         </ol>
-        <button class="btn">Start New Game</button>
+        <button class="btn" id="start-game-btn">Start New Game</button>
       </section>
 
       <section id="active-game">
@@ -86,17 +86,17 @@
 
         <p>It's your turn <span id="active-player-name">PLAYER NAME</span> !</p>
         <ol id="game-board">
-          <li></li>
-          <li></li>
-          <li></li>
+          <li data-row="1" data-col="1"></li>
+          <li data-row="1" data-col="2"></li>
+          <li data-row="1" data-col="3"></li>
 
-          <li></li>
-          <li></li>
-          <li class="disabled">O</li>
+          <li data-row="2" data-col="1"></li>
+          <li data-row="2" data-col="2"></li>
+          <li data-row="2" data-col="3"></li>
 
-          <li></li>
-          <li></li>
-          <li class="disabled">X</li>
+          <li data-row="3" data-col="1"></li>
+          <li data-row="3" data-col="2"></li>
+          <li data-row="3" data-col="3"></li>
         </ol>
       </section>
     </main>
