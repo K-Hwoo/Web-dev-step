@@ -1,0 +1,20 @@
+#carouselExampleIndicators {
+  width: 100%;
+  max-width: 50rem;
+  height: 30rem;
+  margin: 5rem auto 2rem auto;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+#carouselExampleIndicators img {
+  height: 30rem;
+  object-fit: cover;
+}
+
+#newsletter-signup {
+  max-width: 30rem;
+  margin: 4rem auto;
+}
