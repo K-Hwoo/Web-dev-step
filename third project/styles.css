@@ -54,7 +54,7 @@
   padding: 24px;
   /* background-color: rgb(227, 255, 253); */
 
-  /* 그라데이션 으로 - CSS function을 사용 */
+  /* 그라데이션으로 - CSS function을 사용 */
   background: linear-gradient(45deg, rgb(227, 255, 253), rgb(202, 243, 240));
 }
 
