@@ -27,7 +27,19 @@ router.get("/signup", function (req, res) {
 });
 
 router.get("/login", function (req, res) {
-  res.render("login");
+  let sessionInputData = req.session.inputData;
+
+  if (!sessionInputData) {
+    sessionInputData = {
+      hasError: false,
+      email: "",
+      password: "",
+    };
+  }
+
+  req.session.inputData = null;
+
+  res.render("login", { inputData: sessionInputData });
 });
 
 router.post("/signup", async function (req, res) {
@@ -66,7 +78,18 @@ router.post("/signup", async function (req, res) {
     .findOne({ email: enteredEmail });
 
   if (existingUser) {
-    return res.redirect("/signup");
+    req.session.inputData = {
+      hasError: true,
+      message: "User exists already!",
+      email: enteredEmail,
+      confirmEmail: enteredConfirmEmail,
+      password: enteredPassword,
+    };
+
+    req.session.save(function () {
+      return res.redirect("/signup");
+    });
+    return;
   }
 
   const hashedPassword = await bcrypt.hash(enteredPassword, 12);
@@ -92,8 +115,18 @@ router.post("/login", async function (req, res) {
     .findOne({ email: enteredEmail });
 
   if (!existingUser) {
-    console.log("Could not log in!");
-    return res.redirect("/login");
+    req.session.inputData = {
+      hasError: true,
+      message: "Could not log you in - please check yout credentials!",
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+    req.session.save(function () {
+      console.log("Could not log in!");
+      return res.redirect("/login");
+    });
+
+    return;
   }
 
   const passwordAreEqual = await bcrypt.compare(
@@ -102,8 +135,18 @@ router.post("/login", async function (req, res) {
   );
 
   if (!passwordAreEqual) {
-    console.log("Could not log in! - password are not correct!");
-    return res.redirect("/login");
+    req.session.inputData = {
+      hasError: true,
+      message: "Could not log you in - please check yout credentials!",
+      email: enteredEmail,
+      password: enteredPassword,
+    };
+    req.session.save(function () {
+      console.log("Could not log in! - password are not correct!");
+      return res.redirect("/login");
+    });
+
+    return;
   }
 
   req.session.user = {
@@ -114,18 +157,24 @@ router.post("/login", async function (req, res) {
   req.session.save(function () {
     // 인증이 필요한 페이지로의 리다이렉트를 위해
     console.log("User is authenticated!");
-    res.redirect("/admin");
+    res.redirect("/");
   });
 });
 
 router.get("/admin", async function (req, res) {
   // Check the user "ticket"
-  console.log(req.session);
-  if (!req.session.isAuthenticated) {
+
+  if (!res.locals.isAuth) {
+    // if (!req.session.isAuthenticated)
     // if (!req.session.user) -> req.session.isAuthenticated 설정 안했을 시
     // return res.status(401).render("401");
     return res.redirect("/login"); // -> 비로그인 시 로그인 페이지로 리다이렉트
   }
+
+  if (!res.locals.isAdmin) {
+    return res.status(403).render("403");
+  }
+
   res.render("admin");
 });
 

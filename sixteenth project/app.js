@@ -32,10 +32,31 @@ app.use(
     store: sessionStore, // 세션 데이터가 실제로 저장되어야 하는 위치 제어
     cookie: {
       maxAge: 60 * 1000 * 60 * 24 * 30, // 1초   60분   24시간   30일
-      // 30일 뒤 세션 만료
+      // 30일 뒤 세션 만료, 이 옵션이 없으면 세션이 만료되지 않음
     },
   })
 );
+
+app.use(async function (req, res, next) {
+  const user = req.session.user;
+  const isAuth = req.session.isAuthenticated;
+
+  if (!user | !isAuth) {
+    return next();
+  }
+
+  const userDoc = await db
+    .getDb()
+    .collection("users")
+    .findOne({ _id: user.id });
+
+  const isAdmin = userDoc.isAdmin;
+
+  res.locals.isAuth = isAuth;
+  res.locals.isAdmin = isAdmin;
+
+  next();
+});
 
 app.use(demoRoutes);
 
